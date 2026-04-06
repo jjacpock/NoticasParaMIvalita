@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hecho con 💖 por toti</title>
+  <link rel="icon" type="image/png" href="img/icono.png">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .bienvenida {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .bienvenida h1 {
+      font-size: 3rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      margin-bottom: 1rem;
+      animation: slideUp 1s ease-out 0.5s both;
+    }
+
+    .bienvenida p {
+      font-size: 1.5rem;
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      margin-bottom: 2rem;
+      animation: slideUp 1s ease-out 1s both;
+    }
+
+    .btn-entrar {
+      padding: 15px 30px;
+      background: rgba(255,255,255,0.9);
+      color: #ff6f91;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: slideUp 1s ease-out 1.5s both;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .btn-entrar:hover {
+      transform: scale(1.1);
+      background: white;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    }
+
+    .contenido-principal {
+      display: none;
+    }
+
+    .modal-password {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1001;
+    }
+
+    .carta-password {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: slideUp 0.5s ease-out;
+    }
+
+    .carta-password h2 {
+      color: #ff6f91;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    .carta-password p {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .opciones-password {
+      display: grid;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .btn-verificar {
+      padding: 12px 15px;
+      background: linear-gradient(45deg, #ff6f91, #ff4757);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .btn-verificar:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PÁGINA DE BIENVENIDA -->
+  <div id="bienvenida" class="bienvenida">
+    <h1>💌 Bienvenida Mi princesita bonita</h1>
+    <p>Aqui tendre noticas diarias para ti, espero que te gusten 💖</p>
+    <button class="btn-entrar" onclick="entrar()">Desbloquear🔒</button>
+  </div>
+
+  <!-- MODAL DE CONTRASEÑA -->
+  <div id="modalPassword" class="modal-password" style="display: none;">
+    <div class="carta-password">
+      <h2>🔐 Solo para mi amorcito</h2>
+      <p>¿Tu me amas?</p>
+      <div class="opciones-password">
+        <button class="btn-verificar" onclick="verificarRespuesta(true)">Obvio Shi Mi niño lindo</button>
+        <button class="btn-verificar" onclick="verificarRespuesta(false)">Nada que ver (Cuidadito Valentina 😑)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL (OCULTO INICIALMENTE) -->
+  <div id="contenidoPrincipal" class="contenido-principal">
+
+    <!-- SOL -->
+    <div id="sun" class="sun"></div>
+
+    <!-- LUNA -->
+    <div id="moon" class="moon"></div>
+
+    <!-- BOTÓN CAMBIAR MODO DÍA/NOCHE -->
+    <button id="btnModo" class="btn-modo" onclick="alternarModo()">🌙 Cambiar a modo noche</button>
+
+    <h1>💌 Noticas del Corazón</h1>
+
+    <!-- BOTÓN MENSAJE DEL DÍA -->
+    <button class="btn-diario" onclick="abrirDiarioManual()">
+      💖 Algo para ti hoy
+    </button>
+
+    <!-- PREGUNTA DIARIA SOBRE LAS EMOCIONES -->
+    <p id="preguntaDiaria" class="pregunta-diaria"></p>
+
+    <!-- TARJETAS -->
+    <div class="container">
+      <div class="card" onclick="abrir('feliz')">😊 Feliz</div>
+      <div class="card" onclick="abrir('triste')">😢 Triste</div>
+      <div class="card" onclick="abrir('enojada')">😠 Enojada</div>
+      <div class="card" onclick="abrir('desmotivada')">😔 Desmotivada</div>
+      <div class="card" onclick="abrir('cupones')">🎟️ Cupones</div>
+    </div>
+
+    <!-- MODAL EMOCIONAL -->
+    <div id="modal" class="modal">
+      <div class="carta">
+        <p id="texto"></p>
+        <div id="botonesRedes" class="botones-redes" style="display: none;">
+          <button class="btn-red" onclick="abrirWhatsApp()">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="20" height="20">
+            ¡HABLAME MI AMORCITO!
+          </button>
+          <button class="btn-red" onclick="abrirInstagram()">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" width="20" height="20">
+            ¡HABLAME MI AMORCITO!
+          </button>
+          <button class="btn-red" onclick="abrirFacebook()">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg" alt="Messenger" width="20" height="20">
+            ¡HABLAME MI AMORCITO!
+          </button>
+        </div>
+        <button onclick="cerrar()">Cerrar 💖</button>
+      </div>
+    </div>
+
+    <!-- MODAL DIARIO -->
+    <div id="modalDiario" class="modal-diario">
+      <div class="contenido-diario">
+        <span class="cerrar" onclick="cerrarDiario()">✖</span>
+        <img id="fotoDiaria" src="">
+        <p id="fraseDiaria"></p>
+      </div>
+    </div>
+
+    <!-- MÚSICA -->
+    <audio id="musica" loop>
+      <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- SONIDO ESCRITURA -->
+    <audio id="typingSound">
+      <source src="https://assets.mixkit.co/sfx/preview/mixkit-fast-typing-on-keyboard-2546.mp3" type="audio/mp3">
+    </audio>
+
+  </div>
+
+  <script>
+    function entrar() {
+      document.getElementById('bienvenida').style.display = 'none';
+      document.getElementById('modalPassword').style.display = 'flex';
+    }
+
+    function verificarRespuesta(esCorrecta) {
+      if (esCorrecta) {
+        document.getElementById('modalPassword').style.display = 'none';
+        document.getElementById('contenidoPrincipal').style.display = 'block';
+        mostrarPreguntaDiaria();
+        mostrarModalDiario();
+      } else {
+        alert('QUE???!!! RESPUESTA INCORRECTA 😡');
+      }
+    }
+  </script>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

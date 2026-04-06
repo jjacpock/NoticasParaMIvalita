@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hecho con 💖 por toti</title>
+  <link rel="icon" type="image/png" href="img/icono.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- SOL -->
+  <div id="sun" class="sun"></div>
+  
+  <!-- LUNA -->
+  <div id="moon" class="moon"></div>
+
+  <!-- BOTÓN CAMBIAR MODO DÍA/NOCHE -->
+  <button id="btnModo" class="btn-modo" onclick="alternarModo()">🌙 Cambiar a modo noche</button>
+
+  <h1>💌 Noticas del Corazón</h1>
+
+  <!-- BOTÓN MENSAJE DEL DÍA -->
+  <button class="btn-diario" onclick="abrirDiarioManual()">
+    💖 Algo para ti hoy
+  </button>
+
+  <!-- PREGUNTA DIARIA SOBRE LAS EMOCIONES -->
+  <p id="preguntaDiaria" class="pregunta-diaria"></p>
+
+  <!-- TARJETAS -->
+  <div class="container">
+    <div class="card" onclick="abrir('feliz')">😊 Feliz</div>
+    <div class="card" onclick="abrir('triste')">😢 Triste</div>
+    <div class="card" onclick="abrir('enojada')">😠 Enojada</div>
+    <div class="card" onclick="abrir('desmotivada')">😔 Desmotivada</div>
+    <div class="card" onclick="abrir('cupones')">🎟️ Cupones</div>
+  </div>
+
+  <!-- MODAL EMOCIONAL -->
+  <div id="modal" class="modal">
+    <div class="carta">
+      <p id="texto"></p>
+      <div id="botonesRedes" class="botones-redes" style="display: none;">
+        <button class="btn-red" onclick="abrirWhatsApp()">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="20" height="20">
+          ¡HABLAME MI AMORCITO!
+        </button>
+        <button class="btn-red" onclick="abrirInstagram()">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" width="20" height="20">
+          ¡HABLAME MI AMORCITO!
+        </button>
+        <button class="btn-red" onclick="abrirFacebook()">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg" alt="Messenger" width="20" height="20">
+          ¡HABLAME MI AMORCITO!
+        </button>
+      </div>
+      <button onclick="cerrar()">Cerrar 💖</button>
+    </div>
+  </div>
+
+  <!-- MODAL DIARIO -->
+  <div id="modalDiario" class="modal-diario">
+    <div class="contenido-diario">
+      <span class="cerrar" onclick="cerrarDiario()">✖</span>
+      <img id="fotoDiaria" src="">
+      <p id="fraseDiaria"></p>
+    </div>
+  </div>
+
+  <!-- MÚSICA -->
+  <audio id="musica" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- SONIDO ESCRITURA -->
+  <audio id="typingSound">
+    <source src="https://assets.mixkit.co/sfx/preview/mixkit-fast-typing-on-keyboard-2546.mp3" type="audio/mp3">
+  </audio>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
