@@ -299,6 +299,9 @@ const mensajes = {
   //"🎟️ Un día en el que decidas todo tú 👑",
   //"🎟️ Sesión de baile improvisada 💃",
   "❌ ⚠ ACTUALMENTE NO TENGO CUPONES DISPONIBLES ⚠ ❌ "
+  ],
+  extra: [
+    "miraaaaaaaa 😏"
   ]
 };
 
@@ -484,6 +487,7 @@ function abrir(tipo) {
   }
   
   document.getElementById("musica").play();
+  
 }
 
 function cerrar() {
