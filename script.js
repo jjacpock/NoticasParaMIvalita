@@ -485,6 +485,13 @@ function abrir(tipo) {
   } else {
     botonesRedes.style.display = "none";
   }
+
+  const extraImagenes = document.getElementById("extraImagenes");
+  if (tipo === 'extra') {
+    extraImagenes.style.display = "flex";
+  } else {
+    extraImagenes.style.display = "none";
+  }
   
   document.getElementById("musica").play();
   
