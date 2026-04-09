@@ -310,6 +310,8 @@ const frases = [
   "'mucho' cuando se trata de ti es poquito 💕",
   "You're always on my mind",
   "Mientras que tu seas feliz, yo sere feliz✨",
+  "Enamoradisimo de morenita hermosa, preciosa y Divinaaaaa😍",
+  "De tantas cosas malas en el semillero, algo bueno tenia que quedar...✨Nosotros✨ y es perfecto, MENKANTA 💕"
 
 
  
