@@ -298,7 +298,8 @@ const mensajes = {
   //"🎟️ Una tarde de videojuegos 🎮",
   //"🎟️ Un día en el que decidas todo tú 👑",
   //"🎟️ Sesión de baile improvisada 💃",
-  "❌ ⚠ ACTUALMENTE NO TENGO CUPONES DISPONIBLES ⚠ ❌ "
+  //"❌ ⚠ ACTUALMENTE NO TENGO CUPONES DISPONIBLES ⚠ ❌ "
+  "Válido para dormir junticos cuando quieras, pero antes de dormir cenar, ya teno hambe :p"
   ],
   extra: [
     "miraaaaaaaa 😏"
